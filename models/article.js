@@ -52,6 +52,7 @@ articleSchema.pre('validate', function(next) {
     next();
 });
 
+
 // Compile the schema into a model and export it
 const Article = mongoose.model('Article', articleSchema);
 module.exports = Article;

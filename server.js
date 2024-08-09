@@ -65,7 +65,7 @@ app.use(helmet()); // Security headers
 app.get('/', async (req, res) => {
     try {
         // Fetch articles with only necessary fields and sort by creation date
-        const articles = await Article.find({}, 'title slug createdAt')
+        const articles = await Article.find({}, 'title slug description createdAt')
             .sort({ createdAt: 'desc' })
             .exec();
         res.render('articles/index', { articles: articles });
@@ -74,6 +74,7 @@ app.get('/', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
 
 // Use articleRouter for /articles routes
 app.use('/articles', articleRouter);

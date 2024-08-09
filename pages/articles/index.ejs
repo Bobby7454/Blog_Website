@@ -9,26 +9,25 @@
 <body>
     <div class="container">
         <h1 class="mb-4">Bharat Intern Blog</h1>
-        <a href="articles/new" class="btn btn-success">create article</a>
+        <a href="/articles/new" class="btn btn-success">Create Article</a>
         <% articles.forEach(article => { %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title"> <%-article.title %></h4>
+                    <h4 class="card-title"><%- article.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
-                    <%=article.createdAt.toLocaleDateString() %>
+                        <%= article.createdAt.toLocaleDateString() %>
                     </div>
-                    <div class="card-text mb-2" >
-                        <%=article.description%>
+                    <div class="card-text mb-2">
+                        <%= article.description %>
                     </div>
-                    <a href="articles/<%=article.slug%>" class="btn btn-primary">Read more</a>
-                    <a href="articles/edit/<%= article.id%>" class="btn btn-info">Edit</a>
-                    <form action="/articles/<%=article.id%>?_method=DELETE" method="post" class="d-inline">
+                    <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                    <a href="/articles/edit/<%= article._id %>" class="btn btn-info">Edit</a>
+                    <form action="/articles/<%= article._id %>?_method=DELETE" method="post" class="d-inline">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
             </div>
-        <%})%>
+        <% }) %>
     </div>
-    
 </body>
 </html>
